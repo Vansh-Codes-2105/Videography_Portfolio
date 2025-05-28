@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>Sign Up</title>
+	<style>
+		body {
+			background: linear-gradient(to bottom right, pink, yellow);
+		}
+		form {
+			background: transparent;
+			width: 50%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			margin-top: 100px;
+			box-sizing: border-box;
+			text-align: left;
+			border-radius: 10px;
+			font-size: 18px;
+		}
+		input[type="text"], input[type="email"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		input[type="submit"] {
+			background-color: blue;
+			color: white;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		input[type="submit"]:hover {
+			background-color: darkblue;
+		}
+	</style>
+	<script>
+		function validateForm() {
+			var password = document.forms["signupForm"]["password"].value;
+			var confirmPassword = document.forms["signupForm"]["confirm_password"].value;
+
+			if (password !== confirmPassword) {
+				alert("Passwords do not match. Please try again.");
+				return false; 
+			}
+
+			if (password.length < 8) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<form name="signupForm" onsubmit="return validateForm()">
+			<h2 align="center">REGISTRATION FORM</h2>
+
+			<label for="name">Name:</label><br>
+			<input type="text" id="name" name="name" placeholder="Please Enter Your Name" maxlength="25" size="25" required=""><br><br>
+
+			<label for="email">Email:</label><br>
+			<input type="email" id="email" name="email" placeholder="Please Enter Your Email" maxlength="25" size="25" required=""><br><br>
+
+			<label for="password">Password:</label><br>
+			<input type="password" id="password" name="password" placeholder="Please Enter Your Password" maxlength="25" size="25" required=""><br><br>
+
+			<label for="confirm_password">Confirm Password:</label><br>
+			<input type="password" id="confirm_password" name="confirm_password" placeholder="Please Confirm Your Password" maxlength="25" size="25" required=""><br><br>
+
+			<input type="submit" value="Submit"><br><br><br><br>
+
+			<center><li>Please enter all the fields</li></center>
+		</form>
+	</center>
+</body>
+</html>
